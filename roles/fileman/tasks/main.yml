@@ -1,0 +1,13 @@
+---
+
+# register a directories var
+- name: Getting the stats of directories in specific folder
+
+
+# print the directories stats
+
+
+# move directories older than 6 months+ in another folder
+
+
+# symlink the moved directories back to the previous folder
