@@ -1,7 +1,13 @@
 ---
+# debugging task
+- name: Getting the facts of local OS
+  setup:
+  register: local_facts
+
+- debug: var=local_facts.ansible_user_id
 
 # register a directories var
-- name: Getting the stats of directories in specific folder
+# - name: Getting the stats of directories in specific folder
 
 
 # print the directories stats
