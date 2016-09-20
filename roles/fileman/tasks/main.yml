@@ -4,17 +4,17 @@
 
 # grab the folder names
 - name: Store folder names in var
-  command: ls /tmp/testing
+  command: ls /tmp/testing/test_ansible
   register: test_folders
 
 # register a directories var
 - name: Getting the stats of directories in specific folder
-  stat: path="/tmp/testing/{{ item }}"
+  stat: path="/tmp/testing/test_ansible/{{ item }}"
   with_items: "{{ test_folders.stdout_lines }}"
   register: st
 
-- debug: var=st
-
+- debug: var="{{ item }}"
+  with_items: "{{ st.results }}"
 
 # print the directories stats
 
