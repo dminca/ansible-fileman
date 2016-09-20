@@ -1,13 +1,19 @@
 ---
 # debugging task
-- name: Getting the facts of local OS
-  setup:
-  register: local_facts
+# - debug: var=playbook_dir
 
-- debug: var=local_facts.ansible_user_id
+# grab the folder names
+- name: Store folder names in var
+  command: ls /tmp/testing
+  register: test_folders
 
 # register a directories var
-# - name: Getting the stats of directories in specific folder
+- name: Getting the stats of directories in specific folder
+  stat: path="/tmp/testing/{{ item }}"
+  with_items: "{{ test_folders.stdout_lines }}"
+  register: st
+
+- debug: var=st
 
 
 # print the directories stats
