@@ -13,8 +13,10 @@
   with_items: "{{ test_folders.stdout_lines }}"
   register: st
 
+# - debug: var=st.results.0.stat
+
 - debug: var="{{ item }}"
-  with_items: "{{ st.results }}"
+  with_indexed_items: "{{ st.results }}"
 
 # print the directories stats
 
