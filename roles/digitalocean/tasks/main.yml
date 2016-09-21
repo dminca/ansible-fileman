@@ -1,3 +1,16 @@
 ---
 - name: Fire up some droplets
-  
+  digital_ocean:
+    state: present
+    unique_name: yes
+    ssh_pub_key: {{ digitalocean_ssh_pub_key }}
+    api_token: {{ digitalocean_api_token }}
+    side_id: {{ droplet_size.pico }}
+    region_id: {{ droplet_region.frankfurt }}
+    image_id: {{ droplet_image.debian }}
+  register: droplet_data
+  tags: digitalocean
+
+- debug: msg="Droplet created! IP is {{ droplet_data.droplet.ip_address }}"
+
+- debug: msg="ID is {{ droplet_data.droplet.id }}"

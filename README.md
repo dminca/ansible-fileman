@@ -19,5 +19,9 @@ The operations that you'll see around here:
 folders older than 3 months + (let's assume) in a directory that has
 [Replication Factor 1][2] to save some space on the Disk.
 
+##### Resources
+- [digital ocean module][3]
+
 [1]: https://docs.ansible.com/ansible/playbooks_best_practices.html
 [2]: http://docs.splunk.com/Documentation/Splunk/6.4.3/Indexer/Thereplicationfactor
+[3]: https://docs.ansible.com/ansible/digital_ocean_module.html

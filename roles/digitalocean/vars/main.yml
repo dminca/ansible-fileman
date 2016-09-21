@@ -1,3 +1,24 @@
 ---
 digitalocean_api_token: 
 digitalocean_ssh_pub_key: 
+
+# --- droplet config ---
+droplet_region: 
+  frankfurt: 'fra1' 
+  newyork:
+    - nyc1
+    - nyc2
+    - nyc3
+
+droplet_size: 
+  pico: '512mb'
+  mini: '1gb'
+  medium: '2gb'
+  large: '4gb'
+  xlarge: '8gb'
+  xxlarge: '16gb'
+
+droplet_image: 
+  debian: 'debian-7-0-x64'
+  centos: 'centos-6-5-x64'
+  coreos: 'coreos-beta'
