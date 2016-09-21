@@ -2,26 +2,11 @@
 # debugging task
 # - debug: var=playbook_dir
 
-# grab the folder names
-- name: Store folder names in var
-  command: ls /tmp/testing/test_ansible
-  register: test_folders
+- name: Find the test dirs created in the past
+  find: >
+    paths=/home/dminca/Pictures
+    age=2w
+  register: test_dirs
 
-# register a directories var
-- name: Getting the stats of directories in specific folder
-  stat: path="/tmp/testing/test_ansible/{{ item }}"
-  with_items: "{{ test_folders.stdout_lines }}"
-  register: st
-
-# - debug: var=st.results.0.stat
-
-- debug: var="{{ item }}"
-  with_indexed_items: "{{ st.results }}"
-
-# print the directories stats
-
-
-# move directories older than 6 months+ in another folder
-
-
-# symlink the moved directories back to the previous folder
+- debug: var={{ item[1] }}
+  with_indexed_items: "{{ test_dirs.files }}"
