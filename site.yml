@@ -1,6 +1,7 @@
 ---
 
-- hosts: all
+- hosts: do
   roles:
     # - digitalocean
-    - fileman
+    # - fileman
+    - debian-docker

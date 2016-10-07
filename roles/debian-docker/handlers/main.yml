@@ -1,0 +1,19 @@
+---
+- name: start docker
+  service: 
+    name: docker
+    state: started
+  tags: [start_docker]
+
+- name: stop docker
+  service:
+    name: docker
+    state: stopped
+  tags: [stop_docker]
+
+
+- name: restart docker
+  service:
+    name: docker
+    state: restarted
+  tags: [reboot_docker]

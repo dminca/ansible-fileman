@@ -1,0 +1,20 @@
+---
+- name: install docker
+  apt:
+    package: docker-engine
+    update_cache: true
+    state: latest
+  notify: start docker
+
+- name: install docker compose
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/1.8.1/docker-compose-{{ ansible_system }}-{{ ansible_userspace_architecture }}"
+    dest: /usr/local/bin/docker-compose
+    mode: 'u+x'
+
+- name: install docker machine
+  get_url:
+    url: "https://github.com/docker/machine/releases/download/v0.8.2/docker-machine-{{ ansible_system }}-{{ ansible_userspace_architecture }}"
+    dest: /usr/local/bin/docker-machine
+    mode: 'u+x'
+    checksum: sha256:a80d6444540c28612939efe84942bd24fabf038113d3b47d91c09597139146a7
