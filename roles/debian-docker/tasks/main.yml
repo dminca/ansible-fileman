@@ -17,4 +17,4 @@
     url: "https://github.com/docker/machine/releases/download/v{{ docker_machine_version }}/docker-machine-{{ ansible_system }}-{{ ansible_userspace_architecture }}"
     dest: /usr/local/bin/docker-machine
     mode: 'u+x'
-    checksum: sha256:e5c3e360b46a82d4bc5ff2efe357b15040cfc58d3d962f793fee6ee1e44e9b66
+    checksum: "{{ docker_machine_checksum }}"
